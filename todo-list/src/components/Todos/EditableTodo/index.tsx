@@ -2,17 +2,17 @@ import { FC } from "react";
 import { EditableTodoProps } from "./types";
 
 const EditableTodo: FC<EditableTodoProps> = ({
-  editedTodo,
+  selectedEditTodo,
   onEditChange,
-  onSaveEdit,
+  editTodo,
 }) => (
   <>
     <input
       type="text"
-      value={editedTodo.title}
+      value={selectedEditTodo.title}
       onChange={(e) => onEditChange(e.target.value)}
     />
-    <button onClick={onSaveEdit}>Save</button>
+    <button onClick={editTodo}>Save</button>
   </>
 );
 

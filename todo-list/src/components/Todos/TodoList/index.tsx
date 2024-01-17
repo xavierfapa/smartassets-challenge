@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { ITodoListProps } from "./types";
 import { StyledTodoList, StyledListItem } from "./styles";
 import { useTodos } from "../../../context/todosContext";
@@ -6,36 +6,16 @@ import Todo from "../Todo";
 import EditableTodo from "../EditableTodo";
 
 const TodoList: FC<ITodoListProps> = ({ todos }) => {
-  const emptyTodo = { id: "", title: "" };
-  const { setTodos } = useTodos();
-  const [editedTodo, setEditedTodo] = useState(emptyTodo);
+  const {
+    deleteTodo,
+    toggleCompleteTodo,
+    editTodo,
+    selectedEditTodo,
+    setSelectedEditTodo,
+  } = useTodos();
 
-  const handleDelete = (id: string) => {
-    setTodos((prevTodos) => {
-      return prevTodos.filter((todo) => todo.id !== id);
-    });
-  };
-
-  const handleEdit = (id: string, title: string) => {
-    setEditedTodo({ id, title });
-  };
-
-  const handleSaveEdit = (id: string) => {
-    setTodos((prevTodos) => {
-      return prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, title: editedTodo.title } : todo
-      );
-    });
-
-    setEditedTodo(emptyTodo);
-  };
-
-  const handleToggleComplete = (id: string) => {
-    setTodos((prevTodos) => {
-      return prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      );
-    });
+  const onEdit = (id: string, title: string) => {
+    setSelectedEditTodo({ id, title, completed: false });
   };
 
   return (
@@ -43,46 +23,20 @@ const TodoList: FC<ITodoListProps> = ({ todos }) => {
       {todos &&
         todos.map((todo) => (
           <StyledListItem key={todo.id}>
-            {editedTodo && todo.id === editedTodo.id ? (
-              // <>
-              //   <input
-              //     type="text"
-              //     value={editedTodo.title}
-              //     onChange={(e) =>
-              //       setEditedTodo({ ...editedTodo, title: e.target.value })
-              //     }
-              //   />
-              //   <button onClick={() => handleSaveEdit(todo.id)}>Save</button>
-              // </>
+            {selectedEditTodo && todo.id === selectedEditTodo.id ? (
               <EditableTodo
-                editedTodo={editedTodo}
+                selectedEditTodo={selectedEditTodo}
                 onEditChange={(title) =>
-                  setEditedTodo({ ...editedTodo, title })
+                  setSelectedEditTodo({ ...selectedEditTodo, title })
                 }
-                onSaveEdit={() => handleSaveEdit(todo.id)}
+                editTodo={() => editTodo(todo.id)}
               />
             ) : (
-              // <>
-              //   <input
-              //     type="checkbox"
-              //     checked={todo.completed}
-              //     onChange={() => handleToggleComplete(todo.id)}
-              //   />
-              //   <StyledTitle>{todo.title}</StyledTitle>
-              //   <StyledHoverBtsContainer>
-              //     <StyledHoverBts>
-              //       <button onClick={() => handleDelete(todo.id)}>X</button>
-              //       <button onClick={() => handleEdit(todo.id, todo.title)}>
-              //         Ed
-              //       </button>
-              //     </StyledHoverBts>
-              //   </StyledHoverBtsContainer>
-              // </>
               <Todo
                 todo={todo}
-                onDelete={() => handleDelete(todo.id)}
-                onEdit={() => handleEdit(todo.id, todo.title)}
-                onToggleComplete={() => handleToggleComplete(todo.id)}
+                deleteTodo={() => deleteTodo(todo.id)}
+                onEdit={() => onEdit(todo.id, todo.title)}
+                toggleCompleteTodo={() => toggleCompleteTodo(todo.id)}
               />
             )}
           </StyledListItem>

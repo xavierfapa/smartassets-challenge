@@ -1,8 +1,8 @@
 interface TodoProps {
   todo: { id: string; title: string; completed: boolean };
-  onDelete: () => void;
+  deleteTodo: () => void;
   onEdit: () => void;
-  onToggleComplete: () => void;
+  toggleCompleteTodo: () => void;
 }
 
 export type { TodoProps };

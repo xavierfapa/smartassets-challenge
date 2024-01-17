@@ -1,7 +1,7 @@
 interface EditableTodoProps {
-  editedTodo: { id: string; title: string };
+  selectedEditTodo: { id: string; title: string };
   onEditChange: (title: string) => void;
-  onSaveEdit: () => void;
+  editTodo: () => void;
 }
 
 export type { EditableTodoProps };
