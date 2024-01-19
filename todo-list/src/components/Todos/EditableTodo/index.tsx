@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { EditableTodoProps } from "./types";
+import { StyledButton } from "../../Button/styles";
+import { StyledInput } from "./styles";
 
 const EditableTodo: FC<EditableTodoProps> = ({
   selectedEditTodo,
@@ -7,12 +9,13 @@ const EditableTodo: FC<EditableTodoProps> = ({
   editTodo,
 }) => (
   <>
-    <input
+    <StyledInput
+      id="editTodo"
       type="text"
       value={selectedEditTodo.title}
       onChange={(e) => onEditChange(e.target.value)}
     />
-    <button onClick={editTodo}>Save</button>
+    <StyledButton onClick={editTodo}>Save</StyledButton>
   </>
 );
 

@@ -20,7 +20,7 @@ const TodoList: FC<ITodoListProps> = ({ todos }) => {
 
   return (
     <StyledTodoList>
-      {todos &&
+      {todos && todos.length > 0 ? (
         todos.map((todo) => (
           <StyledListItem key={todo.id}>
             {selectedEditTodo && todo.id === selectedEditTodo.id ? (
@@ -40,7 +40,10 @@ const TodoList: FC<ITodoListProps> = ({ todos }) => {
               />
             )}
           </StyledListItem>
-        ))}
+        ))
+      ) : (
+        <p>No todos available.</p>
+      )}
     </StyledTodoList>
   );
 };

@@ -4,11 +4,23 @@ const StyledTodoForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 500px;
+  max-width: 550px;
   width: 100%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.taskItem};
   padding: 10px;
   border-radius: 5px;
+
+  // adding the label but hiding if for accesibility
+  & label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 `;
 
 const StyledFormInput = styled.input`
@@ -16,19 +28,14 @@ const StyledFormInput = styled.input`
   border: 1px solid black;
   padding: 5px;
   border-radius: 5px;
-`;
-
-const StyledFormButton = styled.button`
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px;
-  font-weight: 600;
-  cursor: pointer;
-
-  &:hover {
-    background-color: black;
-    color: white;
+  &:focus {
+    outline: none;
+    border: 1px solid black;
+    background-color: ${({ theme }) => theme.colors.taskContainer};
+  }
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.text};
   }
 `;
 
-export { StyledTodoForm, StyledFormInput, StyledFormButton };
+export { StyledTodoForm, StyledFormInput };

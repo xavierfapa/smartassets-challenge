@@ -1,6 +1,13 @@
-import { StyledTitle, StyledHoverBtsContainer, StyledHoverBts } from "./styles";
+import {
+  StyledTitle,
+  StyledHoverBtsContainer,
+  StyledHoverBts,
+  StyledCheckboxWrapper,
+  StyledCheckbox,
+} from "./styles";
 import { FC } from "react";
 import { TodoProps } from "./types";
+import { StyledButton } from "../../Button/styles";
 
 const Todo: FC<TodoProps> = ({
   todo,
@@ -10,16 +17,18 @@ const Todo: FC<TodoProps> = ({
 }) => {
   return (
     <>
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={toggleCompleteTodo}
-      />
+      <StyledCheckboxWrapper>
+        <StyledCheckbox
+          type="checkbox"
+          checked={todo.completed}
+          onChange={toggleCompleteTodo}
+        />
+      </StyledCheckboxWrapper>
       <StyledTitle>{todo.title}</StyledTitle>
       <StyledHoverBtsContainer>
         <StyledHoverBts>
-          <button onClick={deleteTodo}>X</button>
-          <button onClick={onEdit}>Edit</button>
+          <StyledButton onClick={deleteTodo}>Delete</StyledButton>
+          <StyledButton onClick={onEdit}>Edit</StyledButton>
         </StyledHoverBts>
       </StyledHoverBtsContainer>
     </>

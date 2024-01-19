@@ -13,6 +13,8 @@ export const TodosContext = createContext(
     toggleCompleteTodo: (id: string) => void;
     selectedEditTodo: Todo;
     setSelectedEditTodo: React.Dispatch<React.SetStateAction<Todo>>;
+    filterType: string;
+    setFilterType: (filterType: string) => void;
   }
 );
 
@@ -28,23 +30,16 @@ const TodosProvider = ({ children }: { children: ReactNode }) => {
   const emptyTodo = { id: "", title: "", completed: false };
   const [todos, setTodos] = useState<Todo[]>(defaultTodos);
   const [selectedEditTodo, setSelectedEditTodo] = useState(emptyTodo);
-
-  const deleteTodo = (id: string) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-  };
-
-  const toggleCompleteTodo = (id: string) => {
-    setTodos((prevTodos) => {
-      return prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      );
-    });
-  };
+  const [filterType, setFilterType] = useState("all");
 
   const addTodo = (title: string) => {
     const id = uuidv4();
     const newTodo = { id, title, completed: false };
     setTodos((prevTodos) => [...prevTodos, newTodo]);
+  };
+
+  const deleteTodo = (id: string) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
   const editTodo = (id: string) => {
@@ -55,6 +50,14 @@ const TodosProvider = ({ children }: { children: ReactNode }) => {
     });
 
     setSelectedEditTodo(emptyTodo);
+  };
+
+  const toggleCompleteTodo = (id: string) => {
+    setTodos((prevTodos) => {
+      return prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      );
+    });
   };
 
   return (
@@ -68,6 +71,8 @@ const TodosProvider = ({ children }: { children: ReactNode }) => {
         toggleCompleteTodo,
         selectedEditTodo,
         setSelectedEditTodo,
+        filterType,
+        setFilterType,
       }}
     >
       {children}

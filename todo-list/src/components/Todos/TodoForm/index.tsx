@@ -1,5 +1,6 @@
-import { StyledTodoForm, StyledFormInput, StyledFormButton } from "./styles";
+import { StyledTodoForm, StyledFormInput } from "./styles";
 import { useTodos } from "../../../context/todosContext";
+import { StyledButton } from "../../Button/styles";
 
 export default function TodoForm() {
   const { addTodo } = useTodos();
@@ -13,13 +14,15 @@ export default function TodoForm() {
 
   return (
     <StyledTodoForm onSubmit={handleSubmit}>
+      <label htmlFor="todoInput">Enter a new Task</label>
       <StyledFormInput
         required
+        id="todoInput"
         name="title"
         type="text"
-        placeholder="Write your todo"
+        placeholder="Enter a new task"
       />
-      <StyledFormButton>Add Todo</StyledFormButton>
+      <StyledButton>Add Todo</StyledButton>
     </StyledTodoForm>
   );
 }

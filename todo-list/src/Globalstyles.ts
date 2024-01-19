@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: baseline;
+  font-family: 'Montserrat', sans-serif;
 }
 
 img,
@@ -97,7 +98,6 @@ svg {
 }
 
 body {
-  min-height: 100vh;
   font-size: 100%;
   -webkit-hyphens: auto;
   -ms-hyphens: auto;

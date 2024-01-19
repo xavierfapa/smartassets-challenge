@@ -1,17 +1,25 @@
-const Theme = {
+const DarkTheme = {
   colors: {
-    primary: {
-      main: "#F66605",
-      light: "#FFF3EC",
-    },
-    secondary: {
-      main: "#069094",
-      light: "#ECF9FA",
-    },
-    misc: {
-      w0: "#E6E6E6",
-    },
+    primary: "#0d1b2a",
+    secondary: "#1b263b",
+    taskContainer: "#415a77",
+    taskItem: "#778da9",
+    button: "#e0e1dd",
+    checked: "#415a77",
+    text: "#fff",
   },
 } as const;
 
-export { Theme };
+const LightTheme = {
+  colors: {
+    primary: "#dee2e6",
+    secondary: "#e9ecef",
+    taskContainer: "#f5f5f5",
+    taskItem: "#e9e9e9",
+    button: "#7f8284",
+    checked: "#adb5bd",
+    text: "#000",
+  },
+} as const;
+
+export { DarkTheme, LightTheme };
