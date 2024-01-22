@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
   font-size: 30px;
   font-style: italic;
   text-align: center;
+  height: 74px;
   background: ${({ theme }) => theme.colors.secondary};
   color: ${({ theme }) => theme.colors.text};
 `;

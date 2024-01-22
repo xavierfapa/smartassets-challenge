@@ -5,7 +5,7 @@ import GlobalStyles from "./Globalstyles";
 import TodosContainer from "./components/Todos/TodosContainer";
 import { useState } from "react";
 import { ThemeType } from "./utils/themeTypes";
-import { StyledButton } from "./components/Button/styles";
+import { StyledButton, StyledButtonWrapper } from "./components/Button/styles";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState<ThemeType>(DarkTheme);
@@ -20,9 +20,11 @@ function App() {
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
       <MainLayout>
-        <StyledButton onClick={toggleTheme} className="theme-button">
-          {currentTheme === LightTheme ? "☀️" : "🌙"}
-        </StyledButton>
+        <StyledButtonWrapper>
+          <StyledButton onClick={toggleTheme}>
+            {currentTheme === LightTheme ? "☀️" : "🌙"}
+          </StyledButton>
+        </StyledButtonWrapper>
         <TodosContainer />
       </MainLayout>
     </ThemeProvider>

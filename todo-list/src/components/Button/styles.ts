@@ -28,12 +28,15 @@ const StyledButton = styled.button<StyledButtonProps>`
     background-color: ${theme.colors.taskContainer};
     color: black;
   `}
-
-  &.theme-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-  }
 `;
 
-export { StyledButton };
+const StyledButtonWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 20px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+`;
+
+export { StyledButton, StyledButtonWrapper };
