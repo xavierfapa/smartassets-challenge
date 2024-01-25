@@ -4,6 +4,8 @@ type Todo = {
   completed: boolean;
 };
 
+// type EditableTodoType = Omit<Todo, "completed">;
+
 interface ITodoListProps {
   todos: Todo[];
 }

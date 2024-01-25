@@ -16,19 +16,19 @@ export default function FilterTodosBtns() {
     <StyledFilterWrapper>
       <StyledButton
         onClick={() => handleFilterClick("all")}
-        isActive={activeFilter === "all"}
+        $isActive={activeFilter === "all"}
       >
         All
       </StyledButton>
       <StyledButton
         onClick={() => handleFilterClick("completed")}
-        isActive={activeFilter === "completed"}
+        $isActive={activeFilter === "completed"}
       >
         Completed
       </StyledButton>
       <StyledButton
         onClick={() => handleFilterClick("uncompleted")}
-        isActive={activeFilter === "uncompleted"}
+        $isActive={activeFilter === "uncompleted"}
       >
         Uncompleted
       </StyledButton>

@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import Todo from "./index";
-import { DarkTheme } from "../../../utils/theme";
+import { DarkTheme } from "../../../utils/Theme/theme";
 
 test("renders Todo component", () => {
   const mockTodo = { id: "1", title: "Sample Todo", completed: false };

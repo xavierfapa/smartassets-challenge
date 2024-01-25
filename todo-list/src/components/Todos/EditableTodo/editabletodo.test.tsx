@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import EditableTodo from "./index";
 import { ThemeProvider } from "styled-components";
-import { DarkTheme } from "../../../utils/theme";
+import { DarkTheme } from "../../../utils/Theme/theme";
 
 describe("EditableTodo", () => {
   const mockSelectedEditTodo = {

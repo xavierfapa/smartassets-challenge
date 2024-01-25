@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import TodosProvider from "./context/todosContext";
+import GlobalStyles from "./Globalstyles";
 import { BrowserRouter as Router } from "react-router-dom";
 
 <link
@@ -14,10 +15,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Router>
-      <TodosProvider>
+    <GlobalStyles />
+    <TodosProvider>
+      <Router>
         <App />
-      </TodosProvider>
-    </Router>
+      </Router>
+    </TodosProvider>
   </React.StrictMode>
 );

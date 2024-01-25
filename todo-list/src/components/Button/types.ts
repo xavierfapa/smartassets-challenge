@@ -1,4 +1,5 @@
 export interface ButtonProps {
-  isActive?: boolean;
+  $isActive?: boolean;
   children: React.ReactNode;
+  // onClick?: () => void;
 }

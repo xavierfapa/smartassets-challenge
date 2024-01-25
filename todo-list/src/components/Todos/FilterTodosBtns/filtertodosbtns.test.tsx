@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import FilterTodosBtns from "./index";
 import { useTodos } from "../../../context/todosContext";
-import { DarkTheme } from "../../../utils/theme";
+import { DarkTheme } from "../../../utils/Theme/theme";
 import { waitFor } from "@testing-library/react";
 
 jest.mock("../../../context/todosContext");

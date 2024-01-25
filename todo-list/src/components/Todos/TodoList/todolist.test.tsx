@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import TodoList from "./index";
 import { useTodos } from "../../../context/todosContext";
-import { DarkTheme } from "../../../utils/theme";
+import { DarkTheme } from "../../../utils/Theme/theme";
 import { Todo } from "./types";
 
 jest.mock("../../../context/todosContext");

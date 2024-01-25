@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ButtonProps } from "./types";
-import { ThemeType } from "../../utils/themeTypes";
+import { ThemeType } from "../../utils/Theme/themeTypes";
 
 interface StyledButtonProps extends ButtonProps {
   theme?: ThemeType;
@@ -21,8 +21,8 @@ const StyledButton = styled.button<StyledButtonProps>`
     color: ${({ theme }) => theme.colors.text};
   }
 
-  ${({ isActive, theme }) =>
-    isActive &&
+  ${({ $isActive, theme }) =>
+    $isActive &&
     theme &&
     `
     background-color: ${theme.colors.taskContainer};
