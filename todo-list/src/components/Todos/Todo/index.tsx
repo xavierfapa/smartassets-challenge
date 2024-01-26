@@ -5,16 +5,10 @@ import {
   StyledCheckboxWrapper,
   StyledCheckbox,
 } from "./styles";
-import { FC } from "react";
-import { TodoProps } from "./types";
 import { StyledButton } from "../../Button/styles";
+import { ITodoProps } from "./types";
 
-const Todo: FC<TodoProps> = ({
-  todo,
-  deleteTodo,
-  onEdit,
-  toggleCompleteTodo,
-}) => {
+function Todo({ todo, deleteTodo, onEdit, toggleCompleteTodo }: ITodoProps) {
   return (
     <>
       <StyledCheckboxWrapper>
@@ -33,6 +27,6 @@ const Todo: FC<TodoProps> = ({
       </StyledHoverBtsContainer>
     </>
   );
-};
+}
 
 export default Todo;

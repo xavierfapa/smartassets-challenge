@@ -6,7 +6,7 @@ import {
 } from "../../components/Button/styles";
 import { ThemeType } from "./themeTypes";
 
-export function useTheme() {
+function useTheme() {
   const [currentTheme, setCurrentTheme] = useState<ThemeType>(DarkTheme);
 
   const toggleTheme = () => {
@@ -25,3 +25,5 @@ export function useTheme() {
 
   return { currentTheme, toggleTheme, ThemedButton };
 }
+
+export default useTheme;

@@ -1,8 +1,8 @@
 import { StyledTodoForm, StyledFormInput } from "./styles";
-import { useTodos } from "../../../context/todosContext";
 import { StyledButton } from "../../Button/styles";
+import { useTodos } from "../../../context/todosContext";
 
-export default function TodoForm() {
+function TodoForm() {
   const { addTodo } = useTodos();
 
   const handleSubmit = (e: any) => {
@@ -26,3 +26,5 @@ export default function TodoForm() {
     </StyledTodoForm>
   );
 }
+
+export default TodoForm;

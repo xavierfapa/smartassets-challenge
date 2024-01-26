@@ -1,11 +1,11 @@
+import { useEffect } from "react";
 import TodoList from "../TodoList";
 import TodoForm from "../TodoForm";
 import FilterTodosBtns from "../FilterTodosBtns";
 import { useTodos } from "../../../context/todosContext";
-import { useEffect } from "react";
-import { useFilteredTodos } from "../../../hooks/useTodoFilter";
+import useFilteredTodos from "../../../hooks/useTodoFilter";
 
-export default function TodosContainer() {
+function TodosContainer() {
   const { todos, filterType, setFilterType } = useTodos();
 
   const filteredTodos = useFilteredTodos(todos, filterType);
@@ -22,3 +22,5 @@ export default function TodosContainer() {
     </>
   );
 }
+
+export default TodosContainer;

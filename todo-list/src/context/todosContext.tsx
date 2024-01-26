@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, ReactNode } from "react";
 import { Todo } from "../components/Todos/TodoList/types";
+import { FilterType } from "../hooks/useTodoFilter";
 import { defaultTodos } from "../utils/defaultTodos";
 import { v4 as uuidv4 } from "uuid";
 
@@ -13,8 +14,8 @@ export const TodosContext = createContext(
     toggleCompleteTodo: (id: string) => void;
     selectedEditTodo: Todo;
     setSelectedEditTodo: React.Dispatch<React.SetStateAction<Todo>>;
-    filterType: string;
-    setFilterType: (filterType: string) => void;
+    filterType: FilterType;
+    setFilterType: (filterType: FilterType) => void;
   }
 );
 
@@ -30,7 +31,7 @@ const TodosProvider = ({ children }: { children: ReactNode }) => {
   const emptyTodo = { id: "", title: "", completed: false };
   const [todos, setTodos] = useState<Todo[]>(defaultTodos);
   const [selectedEditTodo, setSelectedEditTodo] = useState(emptyTodo);
-  const [filterType, setFilterType] = useState("all");
+  const [filterType, setFilterType] = useState<FilterType>("all");
 
   const addTodo = (title: string) => {
     const id = uuidv4();

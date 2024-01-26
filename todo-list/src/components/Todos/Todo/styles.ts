@@ -6,7 +6,6 @@ const StyledHoverBtsContainer = styled.div`
   right: 5px;
   transform: translateY(-50%);
   margin-left: 10px;
-  display: flex;
   align-items: center;
   display: none;
 `;
@@ -14,10 +13,9 @@ const StyledHoverBtsContainer = styled.div`
 const StyledHoverBts = styled.div`
   display: flex;
   gap: 7px;
-
   & > * {
     cursor: pointer;
-    width: 70px;
+    // width: 70px;
     background-color: ${({ theme }) => theme.colors.button};
     padding: 5px 10px;
     border-radius: 5px;

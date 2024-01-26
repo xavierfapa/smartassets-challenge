@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Todo } from "../components/Todos/TodoList/types";
 
-export const useFilteredTodos = (allTodos: Todo[], filterType: string) => {
+export type FilterType = "all" | "completed" | "uncompleted";
+
+function useFilteredTodos(allTodos: Todo[], filterType: FilterType) {
   const [filteredTodos, setFilteredTodos] = useState<Todo[]>(allTodos);
 
   useEffect(() => {
@@ -21,4 +23,6 @@ export const useFilteredTodos = (allTodos: Todo[], filterType: string) => {
   }, [allTodos, filterType]);
 
   return filteredTodos;
-};
+}
+
+export default useFilteredTodos;

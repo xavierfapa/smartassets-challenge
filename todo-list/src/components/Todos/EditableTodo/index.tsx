@@ -1,22 +1,23 @@
-import { FC } from "react";
-import { EditableTodoProps } from "./types";
-import { StyledButton } from "../../Button/styles";
 import { StyledInput } from "./styles";
+import { StyledButton } from "../../Button/styles";
+import { IEditableTodoProps } from "./types";
 
-const EditableTodo: FC<EditableTodoProps> = ({
+function EditableTodo({
   selectedEditTodo,
   onEditChange,
   editTodo,
-}) => (
-  <>
-    <StyledInput
-      id="editTodo"
-      type="text"
-      value={selectedEditTodo.title}
-      onChange={(e) => onEditChange(e.target.value)}
-    />
-    <StyledButton onClick={editTodo}>Save</StyledButton>
-  </>
-);
+}: IEditableTodoProps) {
+  return (
+    <>
+      <StyledInput
+        id="editTodo"
+        type="text"
+        value={selectedEditTodo.title}
+        onChange={(e) => onEditChange(e.target.value)}
+      />
+      <StyledButton onClick={editTodo}>Save</StyledButton>
+    </>
+  );
+}
 
 export default EditableTodo;

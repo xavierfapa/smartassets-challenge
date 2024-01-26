@@ -1,11 +1,10 @@
-import { FC } from "react";
-import { ITodoListProps } from "./types";
 import { StyledTodoList, StyledListItem } from "./styles";
+import { ITodoListProps } from "./types";
 import { useTodos } from "../../../context/todosContext";
 import Todo from "../Todo";
 import EditableTodo from "../EditableTodo";
 
-const TodoList: FC<ITodoListProps> = ({ todos }) => {
+function TodoList({ todos }: ITodoListProps) {
   const {
     deleteTodo,
     toggleCompleteTodo,
@@ -46,6 +45,6 @@ const TodoList: FC<ITodoListProps> = ({ todos }) => {
       )}
     </StyledTodoList>
   );
-};
+}
 
 export default TodoList;

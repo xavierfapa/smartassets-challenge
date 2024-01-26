@@ -2,12 +2,13 @@ import { useState } from "react";
 import { StyledButton } from "../../Button/styles";
 import { StyledFilterWrapper } from "./styles";
 import { useTodos } from "../../../context/todosContext";
+import { FilterType } from "../../../hooks/useTodoFilter";
 
-export default function FilterTodosBtns() {
+function FilterTodosBtns() {
   const { setFilterType } = useTodos();
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const handleFilterClick = (filterType: any) => {
+  const handleFilterClick = (filterType: FilterType) => {
     setFilterType(filterType);
     setActiveFilter(filterType);
   };
@@ -35,3 +36,5 @@ export default function FilterTodosBtns() {
     </StyledFilterWrapper>
   );
 }
+
+export default FilterTodosBtns;

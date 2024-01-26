@@ -1,7 +1,7 @@
 import MainLayout from "./layout/MainLayout";
 import { ThemeProvider } from "styled-components";
 import TodosContainer from "./components/Todos/TodosContainer";
-import { useTheme } from "./utils/Theme/useTheme";
+import useTheme from "./utils/Theme/useTheme";
 
 function App() {
   const { currentTheme, ThemedButton } = useTheme();
